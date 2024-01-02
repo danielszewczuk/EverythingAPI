@@ -1,5 +1,5 @@
 # api
-Simple API.
+Proste API.
 
 ### links
 [SECURITY](SECURITY.md)
