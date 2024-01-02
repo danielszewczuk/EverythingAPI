@@ -1,5 +1,5 @@
 # api
 Proste API.
 
-### links
+### linki
 [SECURITY](SECURITY.md)
