@@ -6,3 +6,4 @@
   - Nie jestem pewien.
   - Zdecydowanie tak.
 location: False # Enter False here to ensure that the location from which the ping was sent is not displayed in the API response.
+endpoints_disabled: # Enter None here to not block any endpoints.

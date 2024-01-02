@@ -1,11 +1,13 @@
 from fastapi import FastAPI
 import uvicorn
 from ping3 import ping as ping3_ping
+import random
+import requests
 
 app = FastAPI()
 
 def main():
-    uvicorn.run("main:app", reload=True, port=13371)
+    uvicorn.run("main:app", reload=True, port=13371, host="0.0.0.0")
 
 @app.get("/")
 async def root():
@@ -20,6 +22,14 @@ async def ping(ip):
         return { "response": f"Ping {ip} udany! Czas odpowiedzi: {response} ms"}
     else:
         return { "response": "Ping nieudany."}
-
+    
+@app.get("/randomizer")
+async def randomizer(url):
+    rp = requests.get(url)
+    content = rp.text
+    lines = content.splitlines()
+    random_text = random.choice(lines)
+    return { "response": random_text}
+    
 if __name__ == "__main__":
     main()
