@@ -14,12 +14,12 @@ async def root():
 @app.get("/ping")
 async def ping(ip):
     response = ping3_ping(ip)   
-    if response is not None:
+    if response is not None and response is not False:
+        response = response * 1000
+        response = round(response, 2)
         return { "response": f"Ping {ip} udany! Czas odpowiedzi: {response} ms"}
     else:
         return { "response": "Ping nieudany."}
-    
-
 
 if __name__ == "__main__":
     main()
