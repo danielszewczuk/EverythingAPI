@@ -1,0 +1,1 @@
+Please report any vulnerabilities via [this](mailto:szewczuko@pm.me) email.
