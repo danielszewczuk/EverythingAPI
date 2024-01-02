@@ -20,6 +20,10 @@ async def ping(ip):
         return { "response": f"Ping {ip} udany! Czas odpowiedzi: {response} ms"}
     else:
         return { "response": "Ping nieudany."}
+    
+@app.get("/randomizer")
+async def ping(link):
+    return { "response": "todo"}
 
 if __name__ == "__main__":
     main()
