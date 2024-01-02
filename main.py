@@ -3,7 +3,7 @@ import uvicorn
 from ping3 import ping as ping3_ping
 import random
 import requests
-
+import yaml
 app = FastAPI()
 
 def main():
@@ -31,5 +31,13 @@ async def randomizer(url):
     random_text = random.choice(lines)
     return { "response": random_text}
     
+@app.get("/8ball")
+async def eight_ball():
+    with open("config.yaml", "r") as file:
+        config = yaml.safe_load(file)
+        responses = config["8ball_responses"]
+        random_response = random.choice(responses)
+        return { "response": random_response}
+
 if __name__ == "__main__":
     main()
