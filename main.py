@@ -7,7 +7,7 @@ import requests
 app = FastAPI()
 
 def main():
-    uvicorn.run("main:app", reload=True, port=13371)
+    uvicorn.run("main:app", reload=True, port=13371, host="0.0.0.0")
 
 @app.get("/")
 async def root():
