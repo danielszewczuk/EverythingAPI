@@ -4,6 +4,8 @@ from ping3 import ping as ping3_ping
 import random
 import requests
 import yaml
+from fastapi.responses import RedirectResponse
+import starlette.status as status
 app = FastAPI()
 
 def main():
@@ -12,6 +14,12 @@ def main():
 @app.get("/")
 async def root():
     return { "response": "Welcome to szewczukoAPI. Github: https://github.com/szewczuko/api"}
+
+@app.get("/security")
+async def security():
+    return RedirectResponse(
+        url="https://github.com/szewczuko/api/blob/main/SECURITY.md", status_code=status.HTTP_302_FOUND
+    )
 
 @app.get("/ping")
 async def ping(ip):
