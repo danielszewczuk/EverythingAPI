@@ -2,4 +2,4 @@
 Simple API.
 
 ### links
-SECURITY[SECURITY.md]
+[SECURITY](SECURITY.md)
