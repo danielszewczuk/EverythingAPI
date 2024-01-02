@@ -2,6 +2,7 @@ from fastapi import FastAPI
 import uvicorn
 from ping3 import ping as ping3_ping
 import random
+import requests
 
 app = FastAPI()
 
@@ -24,8 +25,9 @@ async def ping(ip):
     
 @app.get("/randomizer")
 async def randomizer(link):
-    reply = random.choice(open('data.txt').readlines())
+    txt = requests.get(link)
+    fcontent = txt.text
+    reply = random.choice(open(fcontent).readlines())
     return { "response": reply}
-
 if __name__ == "__main__":
     main()
