@@ -5,4 +5,5 @@ Jeśli macie jakiś nową funkcję do dodania do tego API to otwórzcie pull req
 
 ### linki
 [SECURITY](SECURITY.md)
+
 [Dokumentacja](https://apidocs.szewczuko.com/)
