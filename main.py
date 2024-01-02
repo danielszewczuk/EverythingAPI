@@ -24,10 +24,12 @@ async def ping(ip):
         return { "response": "Ping nieudany."}
     
 @app.get("/randomizer")
-async def randomizer(link):
-    txt = requests.get(link)
-    fcontent = txt.text
-    reply = random.choice(open(fcontent).readlines())
-    return { "response": reply}
+async def randomizer(url):
+    rp = requests.get(url)
+    content = rp.text
+    lines = content.splitlines()
+    random_text = random.choice(lines)
+    return { "response": random_text}
+    
 if __name__ == "__main__":
     main()
