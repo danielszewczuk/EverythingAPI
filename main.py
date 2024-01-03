@@ -6,6 +6,7 @@ import requests
 import yaml
 from fastapi.responses import RedirectResponse
 import starlette.status as status
+# import wikipedia
 
 app = FastAPI()
 
@@ -51,8 +52,10 @@ async def eight_ball():
         return { "response": random_response}
 
 # @app.get("/wikipedia")
-# async def wikipedia():
-    
+# async def wikipedia(lang, query):
+# wikipedia.set_lang(lang)
+# !!! TODO !!!
+
 
 if __name__ == "__main__":
     main()
