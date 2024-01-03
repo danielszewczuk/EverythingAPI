@@ -7,11 +7,16 @@ import requests
 import yaml
 from fastapi.responses import RedirectResponse
 import starlette.status as status
-
 app = FastAPI()
 
 def main():
     uvicorn.run("main:app", reload=True, port=13371, host="0.0.0.0")
+
+# == TODO ==
+# @app.get("/traceredirect")
+# async def traceredirect(url):
+#     return { "response": "TODO"}
+    
 
 @app.get("/wikipedia")
 async def wikipedia_summary(query):
