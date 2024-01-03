@@ -13,12 +13,14 @@ def main():
 
 @app.get("/")
 async def root():
-    return { "response": "Welcome to szewczukoAPI. Github: https://github.com/szewczuko/api"}
+    return RedirectResponse(
+        url="https://github.com/szewczuko/EverythingAPI", status_code=status.HTTP_302_FOUND
+    )
 
 @app.get("/security")
 async def security():
     return RedirectResponse(
-        url="https://github.com/szewczuko/api/blob/main/SECURITY.md", status_code=status.HTTP_302_FOUND
+        url="https://github.com/szewczuko/EverythingAPI/blob/main/SECURITY.md", status_code=status.HTTP_302_FOUND
     )
 
 @app.get("/ping")
