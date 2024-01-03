@@ -15,8 +15,11 @@ def main():
 
 @app.get("/wikipedia")
 async def wikipedia_summary(query):
-    wr = wikipedia.summary(query)
-    return {"response": wr}
+    try:
+        wr = wikipedia.summary(query)
+        return {"response": wr}
+    except wikipedia.exceptions.DisambiguationError as e:
+        return {"response": f"Twoje zapytanie pasuje do kilku artykułów: {str(e.options)}"}
 
 @app.get("/")
 async def root():
