@@ -6,6 +6,7 @@ import requests
 import yaml
 from fastapi.responses import RedirectResponse
 import starlette.status as status
+
 app = FastAPI()
 
 def main():
@@ -48,6 +49,10 @@ async def eight_ball():
         responses = config["8ball_responses"]
         random_response = random.choice(responses)
         return { "response": random_response}
+
+# @app.get("/wikipedia")
+# async def wikipedia():
+    
 
 if __name__ == "__main__":
     main()
