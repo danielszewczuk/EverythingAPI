@@ -6,4 +6,4 @@ Jeśli chcecie dodać nową funkcję do tego API to otwórzcie pull requesta, ch
 ### Linki
 [SECURITY](SECURITY.md)
 
-[Dokumentacja](https://apidocs.szewczuko.com/)
+~~[Dokumentacja](https://apidocs.szewczuko.com/)~~ **Aktualnie offline**
