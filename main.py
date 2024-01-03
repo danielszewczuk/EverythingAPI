@@ -1,4 +1,5 @@
 from fastapi import FastAPI
+import wikipedia
 import uvicorn
 from ping3 import ping as ping3_ping
 import random
@@ -6,12 +7,16 @@ import requests
 import yaml
 from fastapi.responses import RedirectResponse
 import starlette.status as status
-# import wikipedia
 
 app = FastAPI()
 
 def main():
     uvicorn.run("main:app", reload=True, port=13371, host="0.0.0.0")
+
+@app.get("/wikipedia")
+async def wikipedia_summary(query):
+    wr = wikipedia.summary(query)
+    return {"response": wr}
 
 @app.get("/")
 async def root():
@@ -50,12 +55,6 @@ async def eight_ball():
         responses = config["8ball_responses"]
         random_response = random.choice(responses)
         return { "response": random_response}
-
-# @app.get("/wikipedia")
-# async def wikipedia(lang, query):
-# wikipedia.set_lang(lang)
-# !!! TODO !!!
-
 
 if __name__ == "__main__":
     main()
